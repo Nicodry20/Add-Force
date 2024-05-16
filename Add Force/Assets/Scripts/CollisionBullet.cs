@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionBullet : MonoBehaviour
 {
+    public float minY;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,10 @@ public class CollisionBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < minY)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
